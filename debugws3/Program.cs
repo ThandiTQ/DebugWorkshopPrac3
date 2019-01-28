@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Data;
 
 namespace debugws3
 {
@@ -90,7 +91,7 @@ namespace debugws3
       var j = 0;
       for (var i = 1; i < numbersToBeCalculated.Length; i++)
       {
-        switch (operations[j])
+         switch (operations[j])
         {
           case '+':
             {
@@ -115,8 +116,13 @@ namespace debugws3
           default:
             break;
         }
+                
         j++;
       }
+
+      //use a datatable
+      DataTable table = new DataTable();
+      result = Convert.ToDouble(table.Compute(input,null));
 
       return new Result(result, "");
     }

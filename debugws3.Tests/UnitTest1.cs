@@ -52,5 +52,13 @@ namespace Tests
       var result = Calc.Calculate(value);
       Assert.IsTrue(result.result == 1, $"{value} should be 1");
     }
+
+    [DataTestMethod]
+    [DataRow("1+3*3")]
+    public void BODMAS(string value)
+    {
+      var result = Calc.Calculate(value);
+      Assert.IsTrue(result.result == 10, $"{value} should be 10");
+    }
   }
 }
